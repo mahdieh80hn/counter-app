@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  counter-app:
+    build: .
+    container_name: counter-app
+    ports:
+      - "8080:80"
+    volumes:
+      - counter-data:/var/www/html
+    environment:
+      - TZ=Asia/Tehran
+    restart: unless-stopped
+volumes:
+  counter-data:
+    driver: local
